@@ -1,0 +1,77 @@
+
+GET http://127.0.0.1:8000/products/ HTTP/1.1
+
+###
+GET http://127.0.0.1:8000/products/2/ HTTP/1.1
+
+###
+DELETE  http://127.0.0.1:8000/products/1/ HTTP/1.1
+
+###
+PUT http://127.0.0.1:8000/products/7/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Television",
+    "price": 20.00,
+    "stock": 1,
+    "description": "the best tester extation"
+}
+
+
+###
+POST http://127.0.0.1:8000/products/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNzgyNTQ2LCJpYXQiOjE3NDE3ODIyNDYsImp0aSI6ImU1YTQ3NzdkYzNhMDQxNTJhNTgyNGUxZGFkNmJmNmU5IiwidXNlcl9pZCI6MX0.rQIB6eUBc4fa74KE6QUDpby5bEchn96IUBKtRJrEddI
+
+{
+    "name": "Television",
+    "price": 100.00,
+    "stock": 10,
+    "description": "the best television"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/token/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"test"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/token/refresh/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MTkzMDEwNywiaWF0IjoxNzQxODQzNzA3LCJqdGkiOiIwNWUwYWZkOTdiMGE0ZmU1YmEwNTA5YmU2YjVmMmE5NyIsInVzZXJfaWQiOjF9.ISysNVABgtmnqBDtgDJBwGhDS0FFdn5GkXXVsli5_g8"
+}
+
+###
+GET http://127.0.0.1:8000/users-orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNzgzMjI3LCJpYXQiOjE3NDE3ODI5MjcsImp0aSI6ImZlYTQ1MmUxMGUyMDQ5ZDQ4M2RiMmZlMjBlODc5NmY0IiwidXNlcl9pZCI6MX0.4RWYaKxSV-nKjobRy_ZxkhYRovlPiPvFrF4yn8qAHsI
+
+###
+
+PUT http://127.0.0.1:8000/orders/80662915-8c83-446d-9264-4e6d47cd1c4e/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQyMDI3NDQ4LCJpYXQiOjE3NDIwMjcxNDgsImp0aSI6ImNlODAwMGJkNTZhNzQ1NjQ4MDg2NTljZmM4NzU0YjRiIiwidXNlcl9pZCI6MX0.XFfKePunHnJ4nRIIe-53x_0XoJRtvxyWXik4uKSgmOo
+
+{
+    "status":"Pending"  ,
+    "user":2,
+    "items":[
+        {
+            "product":2,
+            "quantity":3
+        },
+        {
+            "product":3,
+            "quantity":3
+        }   
+    ]
+
+}

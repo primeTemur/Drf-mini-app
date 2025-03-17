@@ -23,8 +23,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import PageNumberPagination,LimitOffsetPagination
 from rest_framework import viewsets
 
+from rest_framework.throttling import ScopedRateThrottle
+
 
 class ProductListAPIView(generics.ListCreateAPIView):
+    throttle_scope='products'
+    throttle_classes=[ScopedRateThrottle]
     queryset=Product.objects.order_by('pk')
     serializer_class=ProductSerializer
     filterset_class=ProductFilter
@@ -61,6 +65,7 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class OrderViewSet(viewsets.ModelViewSet):
+    throttle_scope='orders'
     queryset=Order.objects.prefetch_related('items__product')
     serializer_class=OrderSerializer
     permission_classes=[IsAuthenticated]
